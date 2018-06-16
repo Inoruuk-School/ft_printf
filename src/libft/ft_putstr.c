@@ -6,7 +6,7 @@
 /*   By: asiaux <asiaux@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/23 02:23:16 by asiaux       #+#   ##    ##    #+#       */
-/*   Updated: 2018/04/10 11:58:00 by asiaux      ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/05/04 02:17:24 by asiaux      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,6 +16,5 @@
 void		ft_putstr(char const *s)
 {
 	if (s)
-		while (*s)
-			ft_putchar(*s++);
+		ft_putstr_fd(s, 1);
 }

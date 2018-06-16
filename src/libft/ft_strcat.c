@@ -6,10 +6,12 @@
 /*   By: asiaux <asiaux@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/23 02:23:31 by asiaux       #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/28 20:10:20 by asiaux      ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/05/22 02:56:56 by asiaux      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 char		*ft_strcat(char *s1, const char *s2)
 {

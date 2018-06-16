@@ -5,15 +5,15 @@
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: asiaux <asiaux@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/01/04 20:18:18 by asiaux       #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/16 13:50:19 by asiaux      ###    #+. /#+    ###.fr     */
+/*   Created: 2018/05/12 21:28:20 by asiaux       #+#   ##    ##    #+#       */
+/*   Updated: 2018/05/12 21:28:21 by asiaux      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void 		ft_lstdel_content(void *content, size_t content_size)
+void		ft_lstdel_content(void *content, size_t content_size)
 {
 	free(content);
 	content = NULL;

@@ -5,8 +5,8 @@
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: asiaux <asiaux@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/04/17 23:14:03 by asiaux       #+#   ##    ##    #+#       */
-/*   Updated: 2018/04/17 23:22:38 by asiaux      ###    #+. /#+    ###.fr     */
+/*   Created: 2018/05/12 21:27:13 by asiaux       #+#   ##    ##    #+#       */
+/*   Updated: 2018/05/12 21:27:15 by asiaux      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,9 +15,10 @@
 
 void	ft_str_tolower(char *str)
 {
-	while (*str)
-	{
-		*str = ft_tolower(*str);
-		str++;
-	}
+	if (str)
+		while (*str)
+		{
+			*str = ft_tolower(*str);
+			str++;
+		}
 }

@@ -5,52 +5,60 @@
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: asiaux <asiaux@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/03/20 19:43:17 by asiaux       #+#   ##    ##    #+#       */
-/*   Updated: 2018/04/19 00:13:20 by asiaux      ###    #+. /#+    ###.fr     */
+/*   Created: 2018/05/12 21:47:38 by asiaux       #+#   ##    ##    #+#       */
+/*   Updated: 2018/05/14 01:46:30 by asiaux      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-static void		aux(intmax_t n, int b, char *ans, int *p)
+char	*ft_itoa_base(intmax_t value, int base)
 {
-	char	base[] = "0123456789ABCDEF";
+	char	*s;
+	long	n;
+	int		sign;
 	int		i;
 
-	if (n <= -b || b <= n)
-		aux(n / b, b, ans, p);
-	i = (n % b) < 0 ? -(n % b) : (n % b);
-	ans[(*p)++] = base[i];
+	if (value == -9223372036854775807 - 1)
+		return (ft_strdup("-9223372036854775808"));
+	if (base > 16 || base < 2)
+		return (0);
+	n = (value < 0) ? -(long)value : value;
+	sign = (value < 0 && base == 10) ? -1 : 0;
+	i = (sign == -1) ? 2 : 1;
+	while ((n /= base) >= 1)
+		i++;
+	if (!(s = ft_strnew(i + 1)))
+		return (0);
+	n = (value < 0) ? -(long)value : value;
+	while (i-- + sign)
+	{
+		s[i] = (n % base < 10) ? n % base + '0' : n % base + 'A' - 10;
+		n /= base;
+	}
+	(i == 0) ? s[i] = '-' : 0;
+	return (s);
 }
 
-char			*ft_uitoa_base(uintmax_t value, int base)
+char	*ft_uitoa_base(uintmax_t value, int base)
 {
-	char	*ans;
-	int		p;
+	char		*s;
+	uintmax_t	n;
+	int			i;
 
-	if (base < 2 || 16 < base
-					|| !(ans = (char *)malloc(sizeof(char) * 64)))
-		return (NULL);
-	p = 0;
-	aux(value, base, ans, &p);
-	ans[p] = '\0';
-	return (ans);
-}
-
-char			*ft_itoa_base(intmax_t value, int base)
-{
-	char	*ans;
-	int		p;
-
-	if (base < 2 || 16 < base
-		|| !(ans = (char *)malloc(sizeof(char) * 64)))
-		return (NULL);
-	p = 0;
-	if (base == 10 && value < 0)
-		ans[p++] = '-';
-	aux(value, base, ans, &p);
-	ans[p] = '\0';
-	return (ans);
+	n = value;
+	i = 1;
+	if (base > 16 || base < 2)
+		return (0);
+	while ((value /= base) >= 1)
+		i++;
+	if (!(s = ft_strnew(i + 1)))
+		return (0);
+	while (i--)
+	{
+		s[i] = (n % base < 10) ? n % base + '0' : n % base + 'A' - 10;
+		n /= base;
+	}
+	return (s);
 }

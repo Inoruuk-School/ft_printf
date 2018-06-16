@@ -6,7 +6,7 @@
 /*   By: asiaux <asiaux@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/23 20:07:52 by asiaux       #+#   ##    ##    #+#       */
-/*   Updated: 2017/12/23 20:25:51 by asiaux      ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/05/12 21:28:50 by asiaux      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,7 +20,7 @@ double		ft_pow(double x, double y)
 	if (!y || x == 1)
 		return (1);
 	i = x;
-	while(x && y--)
+	while (x && y--)
 		i *= x;
 	return (i);
 }

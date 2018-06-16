@@ -5,24 +5,25 @@
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: asiaux <asiaux@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/03/22 21:49:50 by asiaux       #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/22 21:53:09 by asiaux      ###    #+. /#+    ###.fr     */
+/*   Created: 2018/05/12 21:24:48 by asiaux       #+#   ##    ##    #+#       */
+/*   Updated: 2018/06/03 20:08:28 by asiaux      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strjoin_free(char const *s1, char *str_free)
+char		*ft_strjoin_free(char *s1, char *s2)
 {
 	char	*str;
 
-	if (!s1 || !str_free)
+	if (!s1 || !s2)
 		return ((char *)s1);
-	if (!(str = ft_strnew(ft_strlen(s1) + ft_strlen(str_free))))
+	if (!(str = ft_strnew(ft_strlen(s1) + ft_strlen(s2))))
 		return (NULL);
 	ft_strcpy(str, s1);
-	ft_strcat(str, str_free);
-	free(str_free);
+	ft_strcat(str, s2);
+	free(s1);
+	free(s2);
 	return (str);
 }

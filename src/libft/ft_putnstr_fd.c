@@ -5,15 +5,15 @@
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: asiaux <asiaux@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/03/08 21:39:30 by asiaux       #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/08 21:40:29 by asiaux      ###    #+. /#+    ###.fr     */
+/*   Created: 2018/05/12 21:29:47 by asiaux       #+#   ##    ##    #+#       */
+/*   Updated: 2018/05/12 21:30:08 by asiaux      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void 	ft_putnstr_fd(const char *str, size_t len, int fd)
+void		ft_putnstr_fd(const char *str, size_t len, int fd)
 {
-		write(fd, str, len);
+	write(fd, str, len);
 }

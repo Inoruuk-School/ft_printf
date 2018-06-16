@@ -6,7 +6,7 @@
 /*   By: asiaux <asiaux@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/03/13 20:37:59 by asiaux       #+#   ##    ##    #+#       */
-/*   Updated: 2018/04/20 18:11:41 by asiaux      ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/06/02 20:59:26 by asiaux      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,21 +24,49 @@
 
 # include <stdio.h>
 
-void 		ft_find_data_type(uint64_t *flags, char *str);
-char 		*ft_process_infos(va_list ap, const uint64_t flags);
-int			ft_printf(const char *format, ...);
+typedef struct				s_string_list
+{
+	void					*content;
+	int						content_size;
+    size_t					is_malloc : 1;
+	struct s_string_list	*next;
+}							t_string;
+
+
+
 void		ft_error(int er);
-char 		*ft_process_int_flags(char *str, uint64_t flags);
-char		*ft_processing_char(void *val, uint64_t flags);
-char 		*ft_process_point(wchar_t *val, uint64_t flags,\
-														char *c, int width);
+int			ft_printf(const char *format, ...);
+char		*ft_find_data_type(uint64_t *flags, char *str);
+t_string	*ft_newlist(void *content, int size, size_t is_malloc);
+
+/*
+** tools
+*/
+
+char		*ft_process_wcharstring(char *ans, wchar_t *val);
+char		*ft_process_width2(char *ans, char *c, int width);
+char		*ft_process_prec2(char *ans, int i, uint64_t flags);
 char		*ft_wcharstr(wchar_t c);
 size_t		ft_wcharlen(const wchar_t c);
 size_t		ft_calc_size(size_t strsize, uint64_t flags, int fla);
+int			is_type(char c);
+int			is_size(char c);
+int			is_flag(char c, uint64_t flags);
+int			is_parse(char c);
+void		biggest(uint64_t *flags);
+void		ft_process_plus(char *ans, char *str, uint64_t flags, int width);
+void		ft_process_shit(char *ans, uint64_t flags, int width, int zero);
 
-char		*ft_process_int_real(char *str, uint64_t flags, size_t prec,\
-								size_t width);
-char		*ft_process_width2(char *str, char *c, int width);
-char		*ft_process_prec2(char *str, int i, uint64_t *flags, wchar_t *val);
+/*
+** process val to string
+*/
+t_string		*p_infos(va_list ap, const uint64_t flags);
+t_string		*p_char(wchar_t val, const uint64_t flags);
+char			*p_string(char *val, uint64_t flags,\
+														char *c, int width);
+t_string		*p_int2str(void *val, const uint64_t flags);
+char			*p_int(char *str, uint64_t flags, size_t prec,\
+								int width);
+t_string		*p_pointer(wchar_t *val, uint64_t flags);
 
-# endif
+#endif
