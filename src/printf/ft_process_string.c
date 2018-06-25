@@ -12,6 +12,29 @@
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
+/*
+char			*ft_process_wcharstring(char *ans, wchar_t *val)
+{
+	char	*tmp;
+
+	while (*val != '\0')
+	{
+		dprintf(1, "len:%zu\nval:%#x\n", ft_wcharlen(*val), *val);
+		if (ft_wcharlen(*val) == 0 || (*val >= 0xD800 && *val <= 0xDFFF) ||\
+			ft_wcharlen(*val) > (unsigned long)MB_CUR_MAX)
+			break;
+		tmp = ft_wcharstr(*val);
+		ft_strcat(ans, tmp);
+		free(tmp);
+		val++;
+	}
+	if (*val != '\0')
+	{
+		free(ans);
+		ans = NULL;
+	}
+	return (ans);
+}*/
 
 char		*p_string(char *val, uint64_t flags, char *c, int width)
 {
@@ -29,14 +52,18 @@ char		*p_string(char *val, uint64_t flags, char *c, int width)
 	return (ans);
 }
 
-char		*ft_process_wcharstring(char *ans, wchar_t *val)
+
+
+char			*ft_process_wcharstring(char *ans, wchar_t *val)
 {
 	char	*tmp;
 
 	while (*val != '\0')
 	{
-		if (ft_wcharlen(*val) == 0 || (*val >= 0xD800 && *val <= 0xDFFF))
-			break ;
+//		dprintf(1, "len:%zu\nval:%#x\n", ft_wcharlen(*val), *val);
+		if (ft_wcharlen(*val) == 0 || (*val >= 0xD800 && *val <= 0xDFFF))// ||\
+//			ft_wcharlen(*val) > (unsigned long)MB_CUR_MAX)
+			break;
 		if (ft_wcharlen(*val) > (unsigned long)MB_CUR_MAX)
 		{
 			tmp = ft_strnew(1);

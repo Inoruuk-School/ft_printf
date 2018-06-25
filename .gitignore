@@ -1,0 +1,11 @@
+*.o
+a.out*
+libftprintf.a
+*.gch
+main.c
+*.vscode
+*a.out.dSYM
+.idea*
+CM*
+cmake*
+kurki

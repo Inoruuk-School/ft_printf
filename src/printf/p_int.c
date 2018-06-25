@@ -89,8 +89,7 @@ static void		ft_calc_wp(char *str, uint64_t flags, size_t *prec, int *width)
 	*width = ((flags >> 27) & 0xFF) - *prec;
 	if ((flags >> 24) & 1)
 		*width -= 1;
-	if (*width == 1 && (((flags >> 5) & 1 || (flags >> 6) & 1)) &&\
-	(flags >> 21) & 1)
+	if (*width == 1 && (((flags >> 5) & 1 || (flags >> 6) & 1)) && (flags >> 21) & 1)
 		*width = 0;
 }
 

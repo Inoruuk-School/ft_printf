@@ -30,7 +30,7 @@ int			is_size(char c)
 ** Fonction: is_flag
 **----------------------
 ** retourne 1 si c correspond a un flag de printf
-** flags >> 25 == '-'
+** flags >> 25 == '-' 
 */
 
 int			is_flag(char c, uint64_t flags)
@@ -57,7 +57,7 @@ int			is_type(char c)
 /*
 ** Fonction:biggest
 **-----------------------
-** Fonction utilisé pour corriger les erreurs de taille de donnée donne par
+** Fonction utilisé pour corriger les erreurs de taille de donnée donne par 
 ** l'utilisateur
 ** s'il y a le/s taille/s h(flag >> 13) ou hh(flag >> 14) et d'autre tailles
 ** suprérieures, la fonction supprime les type h et hh.

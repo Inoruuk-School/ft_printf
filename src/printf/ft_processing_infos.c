@@ -46,9 +46,9 @@ t_string		*p_char(wchar_t val, const uint64_t flags)
 	char	*ans;
 	char	*str;
 	int		width;
-	int		i;
+	int 	i;
 
-	if (val <= 255 && val > 127 && (str = ft_strnew(1)))
+	if (val <= 255 && val > 127  &&	(str = ft_strnew(1)))
 		str[0] = -2;
 	else if (ft_wcharlen(val) == 0 || (val >= 0xD800 && val <= 0xDFFF) ||\
 	ft_wcharlen(val) > (unsigned long)MB_CUR_MAX)
@@ -56,7 +56,7 @@ t_string		*p_char(wchar_t val, const uint64_t flags)
 	else if (val == 0)
 		str = NULL;
 	else
-		str = ft_wcharstr(val);
+	    str = ft_wcharstr(val);
 	i = !str ? 1 : ft_strlen(str);
 	ans = ft_strnew(ft_calc_size(i, flags, (int)(flags & 0xFFF)));
 	width = ((flags >> 27) & 0xFF) - i;
@@ -92,7 +92,7 @@ t_string		*p_infos(va_list ap, const uint64_t flags)
 	else if (((flags & 0xF) < 0x4) && ((flags & 0xF) > 0))
 		ans = p_pointer((wchar_t *)val, flags);
 	else if (((flags & 0x800) == 0x800))
-		return (p_char((wchar_t)val, flags));
+		return(p_char((wchar_t)val, flags));
 	else if ((flags & 0xFFF) == 0)
 		ans = ft_newlist(ft_strdup(""), 1, 1);
 	return (ans);

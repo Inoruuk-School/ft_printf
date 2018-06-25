@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   p_int2str.c                                      .::    .:/ .      .::   */
+/*   p_int2str.c                                .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: asiaux <asiaux@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/06/16 03:13:03 by asiaux       #+#   ##    ##    #+#       */
-/*   Updated: 2018/06/16 03:13:03 by asiaux      ###    #+. /#+    ###.fr     */
+/*   Created: 2018/05/11 00:51:34 by asiaux       #+#   ##    ##    #+#       */
+/*   Updated: 2018/05/25 08:05:26 by asiaux      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -88,7 +88,7 @@ static char		*p_type_u(void *val, const uint64_t flags)
 	return (ans);
 }
 
-static	char	*p_type_x(void *val, const uint64_t flags)
+static	char		*p_type_x(void *val, const uint64_t flags)
 {
 	char	*ans;
 
