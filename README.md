@@ -9,7 +9,7 @@ Parce que refaire son propre printf, c'est trop cool...
   * Utilisation des fonctions variadiques
   * Appréhension de la plupart types de variables C
 
-*Résumé du sujet :
+* Résumé du sujet :
 
 Quelque soit le langage de programmation considéré, la fonction printf (ou ses équivalents) est toujours une fonction extrêment pratique. La raison principale est bien évidemment le confort de formatage, et le support de types hétérogènes en nombre variable. Certaines variantes proposent même de pouvoir écrire la chaine de caractères résultat sur un file descriptor ou un stream particulier, ou bien même carrément de récuperer cette chaine sans l’imprimer. Bref, c’est une fonction incontournable que nous vous proposons de recoder aujourd’hui.
 
